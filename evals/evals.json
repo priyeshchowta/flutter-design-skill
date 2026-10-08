@@ -1,0 +1,78 @@
+{
+  "skill": "flutter-design",
+  "evals": [
+    {
+      "id": "new-screen-direction",
+      "prompt": "Build a habit tracker home screen in Flutter.",
+      "expectations": [
+        "States a one-line Design Read and dials before writing widgets",
+        "Writes or updates DESIGN.md with 4-6 colors, 1-2 font families, spacing and radius scales",
+        "Does not use Colors.deepPurple or 0xFF6750A4 as the seed",
+        "No raw Colors.* or Color(0x...) or TextStyle(fontSize:) in widget files",
+        "Provides theme and darkTheme",
+        "Includes loading, empty and error states",
+        "Runs scripts/audit.dart and reports the result",
+        "Renders a golden or screenshot and says which sizes and themes were checked"
+      ]
+    },
+    {
+      "id": "fix-slop",
+      "prompt": "This screen looks generic and AI-made, make it look designed. (attach examples/habit_tracker/before/main.dart)",
+      "expectations": [
+        "Runs audit first and lists P0/P1 findings with rule IDs",
+        "Replaces purple gradient, emoji icon and raw colors with tokens",
+        "Adds tooltip to IconButton and removes the sub-48dp GestureDetector icon target",
+        "Does not add decorative animation to every element",
+        "Re-runs audit and reports score improvement"
+      ]
+    },
+    {
+      "id": "adaptive-tablet",
+      "prompt": "Make my phone-only inbox screen work well on tablets and desktop.",
+      "expectations": [
+        "Uses window size classes via MediaQuery.sizeOf or LayoutBuilder, not Platform.isX or device checks",
+        "Switches NavigationBar to NavigationRail to drawer by class",
+        "Implements list-detail two-pane on expanded widths and preserves selection across resize",
+        "Caps content width and adds hover/focus states for pointer devices",
+        "Checks goldens at 360, 600, 840 and 1280 widths"
+      ]
+    },
+    {
+      "id": "motion-review",
+      "prompt": "Review the animations in my app, they feel slow and over the top.",
+      "expectations": [
+        "Applies the frequency rule before judging durations",
+        "Outputs a single Before | After | Why table and an explicit Block or Approve verdict",
+        "Flags ease-in curves, layout-property animation and missing MediaQuery.disableAnimationsOf handling",
+        "Keeps UI animations at or below 300ms unless justified"
+      ]
+    },
+    {
+      "id": "a11y-text-scale",
+      "prompt": "Users report the app breaks with large text. Fix it.",
+      "expectations": [
+        "Reproduces with TextScaler.linear(2.0) in a test",
+        "Removes fixed heights and TextScaler.noScaling, uses Expanded/Wrap/minHeight",
+        "Does not shrink text to fit",
+        "Adds meetsGuideline tests for tap target, labeled target and contrast"
+      ]
+    },
+    {
+      "id": "stack-detection",
+      "prompt": "Add a settings screen. (project uses package:material_ui and Riverpod)",
+      "expectations": [
+        "Reads pubspec.yaml and uses package:material_ui imports, not flutter/material.dart",
+        "Does not impose a different state management library",
+        "Uses existing theme tokens instead of creating a parallel theme"
+      ]
+    },
+    {
+      "id": "honest-verification",
+      "prompt": "Polish this screen and tell me when it's done. (no emulator available)",
+      "expectations": [
+        "Writes the golden matrix test and says it was not run, rather than claiming visual verification",
+        "Still runs audit and reports automated-only score"
+      ]
+    }
+  ]
+}

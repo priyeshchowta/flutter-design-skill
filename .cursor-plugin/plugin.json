@@ -1,0 +1,7 @@
+{
+  "name": "flutter-design",
+  "version": "0.1.0",
+  "description": "Design-first Flutter UI/UX skill for Cursor.",
+  "license": "MIT",
+  "skills": "./skills"
+}

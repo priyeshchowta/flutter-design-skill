@@ -1,0 +1,6 @@
+.dart_tool/
+build/
+test/snippet_check/
+.idea/
+*.iml
+.DS_Store

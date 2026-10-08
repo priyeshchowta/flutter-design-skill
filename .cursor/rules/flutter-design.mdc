@@ -1,0 +1,18 @@
+---
+description: Flutter UI design rules. Apply when building or editing screens, widgets, themes, or motion.
+globs: "**/*.dart"
+alwaysApply: false
+---
+
+# Flutter design
+
+The full skill is `skills/flutter-design/SKILL.md`. Follow it when it is available. Otherwise:
+
+1. Say the Design Read: screen, audience, vibe, Material or Cupertino.
+2. Put color in `ColorScheme`, type in `TextTheme`, spacing and radius in a `ThemeExtension`. No raw `Colors.*`, `Color(0x...)`, or `TextStyle(fontSize:)` in widgets.
+3. Do not ship `ColorScheme.fromSeed(seedColor: Colors.deepPurple)`.
+4. Provide light and dark themes. Do not branch on `Brightness` inside a widget.
+5. Targets are at least 48dp (44pt on iOS), 8dp apart, with a semantics label.
+6. Layout survives `TextScaler.linear(2.0)`. Window classes: under 600, 600-840, 840-1200, 1200+.
+7. Motion: press 100-160ms, state 150-250ms, overlay 200-300ms. No ease-in. Honor `MediaQuery.disableAnimationsOf`. Do not animate an action the user sees 100+ times a day.
+8. After UI edits, run `dart run skills/flutter-design/scripts/audit.dart <path>` and look at a golden or screenshot in light, dark, and 2.0 text scale.

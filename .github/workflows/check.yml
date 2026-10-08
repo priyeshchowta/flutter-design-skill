@@ -1,0 +1,31 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  dart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart run tool/validate.dart
+      - run: flutter analyze
+      - run: flutter test
+      - name: slop example must fail the audit
+        run: |
+          if dart run skills/flutter-design/scripts/audit.dart examples/habit_tracker/before; then
+            echo "expected the before example to report P0 or P1 findings"
+            exit 1
+          fi
+      - name: worked example must pass the audit
+        run: dart run skills/flutter-design/scripts/audit.dart examples/habit_tracker/after
+      - name: rule snippets compile
+        run: |
+          dart run tool/check_snippets.dart
+          dart analyze test/snippet_check

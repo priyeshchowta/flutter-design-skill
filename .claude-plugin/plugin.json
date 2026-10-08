@@ -1,0 +1,8 @@
+{
+  "name": "flutter-design",
+  "version": "0.1.0",
+  "description": "Design-first Flutter UI/UX skill. Stops default-purple Material slop, then looks at what it built.",
+  "license": "MIT",
+  "keywords": ["flutter", "dart", "ui", "ux", "material3", "cupertino", "design-system", "accessibility"],
+  "skills": "./skills"
+}

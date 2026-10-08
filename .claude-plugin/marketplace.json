@@ -1,0 +1,12 @@
+{
+  "name": "flutter-design-skill",
+  "owner": { "name": "flutter-design-skill" },
+  "plugins": [
+    {
+      "name": "flutter-design",
+      "source": "./",
+      "description": "Design-first Flutter UI/UX skill: anti-slop theming, typography, motion, adaptive layout, accessibility, audits and a golden-test critique loop.",
+      "skills": ["./skills/flutter-design"]
+    }
+  ]
+}

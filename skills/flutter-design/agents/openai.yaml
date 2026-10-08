@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flutter Design"
+  short_description: "Design-first Flutter UI. Stops default Material slop, then checks the render."
+  default_prompt: "Use the flutter-design skill. State a Design Read, plan ColorScheme and TextTheme tokens, then build and audit the screen."
